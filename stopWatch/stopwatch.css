@@ -1,0 +1,54 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container{
+
+  
+  
+}
+.timeDisplay{
+  text-align: center;
+  background-color: rgb(0,0,0);
+  color: greenyellow;
+  padding: 20px;
+  
+}
+.buttons{
+ padding: 5px;
+  margin: 3px;
+}
+.startButton,.stopButton,.lapButton,.resetButton{
+  
+  border: solid;
+  border-width: 1px ;
+  background-color: white;
+  padding: 3px;
+  
+}
+.resetButton:hover{
+  background-color: rgba(182, 178, 178, 0.979);
+}
+.startButton:hover{
+  background-color: rgba(182, 178, 178, 0.979);
+
+}
+.lapButton:hover{
+  background-color: rgba(182, 178, 178, 0.979);
+}
+.stopButton:hover{
+  background-color: rgba(182, 178, 178, 0.979);
+
+}
+.lap{
+ text-align: center;
+ ;
+
+
+}
+.laptimes{
+  margin:3px;
+  background-color: rgba(238, 237, 237, 0.979);
+ 
+}

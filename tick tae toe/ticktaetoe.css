@@ -1,0 +1,37 @@
+.cell{
+  width: 75px;
+  height: 75px;
+border: 2px solid;
+border-radius: 5px;
+background-color: #f2eecb;
+box-shadow: 0 0 0 2px;
+line-height: 75px;
+font-size: 50px;
+cursor: pointer;
+text-align: center;
+font-family: "Parmanent Marker",cursive;
+}
+.extras{
+
+  text-align: center;
+  
+
+}
+.cellContainer{
+  display: grid;
+  grid-template-columns: repeat(3,auto);
+  width: 225px;
+  margin:auto;
+
+}
+.gameContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.restartButton{
+  
+  border:1px solid;
+ border-radius: 5px;
+ padding: 10px;
+}

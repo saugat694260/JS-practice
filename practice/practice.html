@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .board{
+      background-color: red;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    
+      
+    }
+    .pp{
+      justify-content: center;
+      text-align: center;
+    }
+    .hoe{
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      margin-top: 20px;
+    }
+    #slider{
+      height: 20px;
+      background-color: red
+      ;
+    }
+    .btn{
+      position: relative;
+     }
+    .btn:active{
+     background-color: red;
+     position: relative;
+     
+    }
+    .slider{
+      height: 20px;
+      width: 20px;
+      background-color: red;
+      border: 1px solid black;
+      
+      left:2px;
+    }
+    .animate{
+      animation: slide 4s ;
+    }
+  @keyframes slide{
+    0%{left:0px}
+    
+    100%{left:1px}
+   
+  }
+    .btn:hover{
+animation: butt 1s infinite;
+    }
+    @keyframes butt{
+0%{
+top: 1px;background-color: black;
+}
+25%{
+  top: 3px;background-color: black;
+}
+50%{
+  top: 5px;background-color: black;
+}
+75%{
+  top: 7px;background-color: black;
+}
+100%{
+top: 10px;background-color: palevioletred;
+}
+}
+    
+  </style>
+</head>
+<body>
+  <div class="container">
+    <button class="btn" > Click</button>
+    <div class="hoe"></div>
+    <div id="sex"></div>
+  </div>
+  
+  <script>
+   
+   let hoe=null;
+      
+    
+    
+     
+      
+    
+const butt=document.querySelector(".btn");
+const html=document.querySelector('.hoe');
+const element=document.querySelector(".board");;
+butt.addEventListener(
+  "click",()=>{
+   
+   
+    if(butt.innerText=="Click"){
+      let elapsedTime=0;
+      let startTime=0;
+      let secs=0;
+      startTime=Date.now()-elapsedTime;
+
+    hoe=setInterval(function(){
+       
+        elapsedTime=Date.now()-startTime;
+secs=Math.floor((elapsedTime/1000));
+      console.log(secs)
+      //
+      let i=0;
+    
+    while(i<=secs){
+    let slider=document.createElement("div");
+  slider.setAttribute("class","slider animate");
+  slider.setAttribute("id","slider"+i);
+  html.append(slider);
+  slider.style.right=i*10+"px";
+
+ 
+  i++;
+  if(secs==5){
+        clearInterval(hoe);
+       
+      }
+
+  }
+      //
+      
+      
+    },1000);
+   
+    
+     
+ 
+ butt.innerText=`return`;
+ 
+
+
+  }
+ else{
+  butt.innerText=`Click`
+ html.innerHTML=`
+`;
+clearInterval(hoe);
+
+}}
+  
+
+);
+
+         
+
+         
+           
+    
+   
+          
+  </script>
+</body>
+</html>

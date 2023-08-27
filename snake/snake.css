@@ -1,0 +1,24 @@
+body{
+  display: flex;
+justify-content: center;
+align-items: center;
+}
+.gameContainer{
+text-align: center;
+}
+.gameBoard{
+  border: 3px solid;
+
+}
+.score{
+  font-family: "Permanent Marker",cursive;
+  font-size: 50px;
+}
+.resetButton{
+  font-family: "Permanent Marker",cursive;
+  padding-left: 10px; 
+  padding-right: 10px;
+  border: 1px solid;
+  border-radius: 5px;
+  cursor: pointer;
+}
