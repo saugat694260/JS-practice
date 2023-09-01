@@ -11,8 +11,8 @@ let time;
 let running=false;
 let scores=0;
 const backgroundColor="#ADD8E6";
-const playerColor="black";
-const obstaclesColour="red";
+const playerColor="#232b2b";
+const obstaclesColour="#D2042D";
 const pathColor="black;"
 
 //
@@ -121,20 +121,48 @@ ctx.stroke();
   function generateObstacles(){
 if(obstacle1Y>gameheight){
   
-obstacle1Y=0;
+  //random y1
+  let y=-Math.floor(((Math.random() * (2 -0 + 1) + 0)%10))*10;
+  //random x1
+ let x= Math.floor(Math.random() * (1 - 0 + 1) + 0)
+if(x==1){
+obstacle1X=(gamewidth/2)-unitSize;
+}
+else{
+  obstacle1X=gamewidth/2
+}
+obstacle1Y=y;
 point()
 
 
 }
 if(obstacle2Y>gameheight){
-  
-  obstacle2Y=0;
+  //random y2
+  let y=-Math.floor(((Math.random() * (6 -4 + 1) + 0)%10))*10;
+
+  let x= Math.floor(Math.random() * (1 - 0 + 1) + 0)
+  if(x==1){
+  obstacle2X=(gamewidth/2)-unitSize;
+  }
+  else{
+    obstacle2X=gamewidth/2
+  }
+  obstacle2Y=y;
   point()
 }
 
 if(obstacle3Y>gameheight){
- 
-  obstacle3Y=0;
+ //random y3
+ let y=-Math.floor(((Math.random() * (10 -8 + 1) + 0)%10))*10;
+
+ let x= Math.floor(Math.random() * (1 - 0 + 1) + 0)
+ if(x==1){
+ obstacle3X=gamewidth/2;
+ }
+ else{
+   obstacle3X=(gamewidth/2)-unitSize;
+ }
+  obstacle3Y=y;
   point()
 
   
@@ -177,7 +205,7 @@ break;
   }
   function checkGameover(){
 
-    if(playerY==obstacle1Y-unitSize && playerX==obstacle1X ||playerY==obstacle2Y && playerX==obstacle2X||playerY==obstacle3Y && playerX==obstacle3X){
+    if(playerY==obstacle1Y && playerX==obstacle1X ||playerY==obstacle2Y && playerX==obstacle2X||playerY==obstacle3Y && playerX==obstacle3X){
       running=false;
   
     }
@@ -214,3 +242,7 @@ playerY=gameheight-unitSize-10;
 
   }
  
+  ////setInterval(() => {
+   
+    //console.log(y);
+  //},1000);
