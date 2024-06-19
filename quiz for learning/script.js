@@ -79,7 +79,7 @@ let mainInterval=setInterval(()=>{
     timer.textContent=countdownTime;
 
     if(countdownTime<=0){
-
+        highlightAnswer();
         countdownTime=10;
         questionNumber+=1;
         startOfQuestion++;
@@ -90,7 +90,6 @@ let mainInterval=setInterval(()=>{
 
         updatequestionMainBoxHtml();
         userAnswer();
-        highlightAnswer();
         updateData();
 
     }
@@ -110,20 +109,16 @@ function userAnswer(){
             
             if(!buttonNumber==currentQuestionData.correctAnswer){
                 //if the ans doesnt match
-                let optionButton=document.getElementsByTagName("button")[buttonNumber];
-                optionButton.style.backgroundColor="red";
-                optionButton=document.getElementsByTagName("button")[currentQuestionData.correctAnswer];
-                optionButton.style.backgroundColor="green";
-
+        
                 countdownTime=10;
+                highlightAnswer();
                 questionNumber+=1;
                 updateData();
 
             }
             else{
                 //if the and matches
-                let optionButton=document.getElementsByTagName("button")[buttonNumber];
-                optionButton.style.backgroundColor="green";
+                highlightAnswer();
 
                 countdownTime=10;
                 questionNumber+=1;
@@ -141,10 +136,8 @@ function userAnswer(){
 //hilights correct answer when timer reches certain level
 
 function highlightAnswer(){
-    if(countdownTime<=0){
         let optionButton=document.getElementsByTagName("button")[currentQuestionData.correctAnswer];
-        optionButton.style.backgroundColor="green"
-    };
+        optionButton.style.backgroundColor="green";
 }
 
 
