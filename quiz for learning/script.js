@@ -7,8 +7,9 @@ let currentQuestionData=[];
 let countdownTime=10;
 let levelsData=[];
 let currentLevelData=[];
-let startOfQuestion=0;
 let endOfQuestion;
+let score=0;
+let levelCompleted=false;
 
 updateData();
 
@@ -28,7 +29,7 @@ currentLevelData.forEach((data)=>{
     //pushes the data according to the index of current question
     currentQuestionData=data.values[questionNumber];
     //this code below is not in use yet
-    endOfQuestion=data.values.length;
+    endOfQuestion=data.values.length-1;
 
 });
 }
@@ -38,7 +39,10 @@ currentLevelData.forEach((data)=>{
 let questionsMainBox=idSelector("question-main-box-js");
 let questionsMainBoxHtml="";
 
-updatequestionMainBoxHtml();
+
+    updatequestionMainBoxHtml();
+
+
 
 //add the elements in main container
 
@@ -68,34 +72,45 @@ function updatequestionMainBoxHtml(){
 
 
 
-let timer=idSelector("timer-js");
+
 
 //timer for 1 second
 
-let mainInterval=setInterval(()=>{
 
-    //countdown time
-    countdownTime-=1;
-    timer.textContent=countdownTime;
+if (!levelCompleted){
 
-    if(countdownTime<=0){
-        highlightAnswer();
-        countdownTime=10;
-        questionNumber+=1;
-        startOfQuestion++;
+    let timer=idSelector("timer-js");
 
+    let mainInterval=setInterval(()=>{
+        
+        //countdown time
+        countdownTime-=1;
+        timer.textContent=countdownTime;
 
-    }
-    else{
+        if(questionNumber>endOfQuestion){
+            updateScore();
+            clearInterval(mainInterval);
+        }
 
-        updatequestionMainBoxHtml();
-        userAnswer();
-        updateData();
-
-    }
-
-
-},1000);
+        if(countdownTime<=0){
+            highlightAnswer();
+            countdownTime=10;
+            questionNumber+=1;
+    
+    
+        }
+        else{
+            
+            updatequestionMainBoxHtml();
+            userAnswer();
+            updateData();
+            
+    
+        }
+    
+    
+    },1000);
+}
 
 //releated with all the events after user gives answer
 function userAnswer(){
@@ -109,7 +124,7 @@ function userAnswer(){
             
             if(!buttonNumber==currentQuestionData.correctAnswer){
                 //if the ans doesnt match
-        
+    
                 countdownTime=10;
                 highlightAnswer();
                 questionNumber+=1;
@@ -119,7 +134,7 @@ function userAnswer(){
             else{
                 //if the and matches
                 highlightAnswer();
-
+                score++
                 countdownTime=10;
                 questionNumber+=1;
                 updateData();
@@ -140,6 +155,10 @@ function highlightAnswer(){
         optionButton.style.backgroundColor="green";
 }
 
+//score
+function updateScore(){
+    questionsMainBox.innerHTML=`score:${score}`
+}
 
 
 
