@@ -79,6 +79,7 @@ function updatequestionMainBoxHtml(){
 
 if (!levelCompleted){
 
+
     let timer=idSelector("timer-js");
 
     let mainInterval=setInterval(()=>{
@@ -87,6 +88,13 @@ if (!levelCompleted){
         countdownTime-=1;
         timer.textContent=countdownTime;
 
+       
+    
+    
+    },1000);
+
+    setInterval(()=>{
+        
         if(questionNumber>endOfQuestion){
             updateScore();
             clearInterval(mainInterval);
@@ -96,8 +104,8 @@ if (!levelCompleted){
             highlightAnswer();
             countdownTime=10;
             questionNumber+=1;
-    
-    
+
+
         }
         else{
             
@@ -105,11 +113,11 @@ if (!levelCompleted){
             userAnswer();
             updateData();
             
-    
+
         }
-    
-    
-    },1000);
+        },500)
+
+
 }
 
 //releated with all the events after user gives answer
